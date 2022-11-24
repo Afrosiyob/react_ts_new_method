@@ -1,7 +1,10 @@
+// import i18n (needs to be bundled ;))
+import "./i18n";
+
 import React from "react";
+import RootProvider from "providers";
 import ReactDOM from "react-dom/client";
 
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
@@ -12,7 +15,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <RootProvider />
   </React.StrictMode>
 );
 
