@@ -1,0 +1,30 @@
+{
+  "cSpell.words": [
+    "browserslist",
+    "camelcase",
+    "commitlint",
+    "languagedetector",
+    "stylelint",
+    "TTFB"
+  ],
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.minimap.enabled": true,
+  "explorer.compactFolders": false,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true
+  },
+  "material-icon-theme.activeIconPack": "react_redux"
+}
