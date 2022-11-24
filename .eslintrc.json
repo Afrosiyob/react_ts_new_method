@@ -8,6 +8,9 @@
     "react-app",
     "react-app/jest",
     "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     // other extends
     "plugin:react/recommended",
     "standard-with-typescript",
@@ -23,7 +26,11 @@
   },
   "plugins": [
     "react",
+    "react-hooks",
+    "unused-imports",
+    "simple-import-sort",
     "@typescript-eslint",
+    "unused-imports",
     // prettier must be last
     "prettier"
   ],
@@ -72,6 +79,128 @@
       {
         "allowExpressions": true
       }
+    ],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ],
+    "@typescript-eslint/comma-dangle": [
+      "error",
+      {
+        "arrays": "only-multiline",
+        "objects": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "only-multiline",
+        "functions": "never"
+      }
+    ],
+    "newline-after-var": "error",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": ["error", { "considerQueryString": true }],
+
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Side effect imports.
+          ["^\\u0000"],
+          // react
+          // Packages.
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+          [
+            "^react$",
+            "^react-dom$",
+            "^react-router$",
+            "^react-router-dom$",
+            "^@?\\w"
+          ],
+          // Config import
+          ["^config"],
+          ["^constants"],
+          ["^store"],
+          // Absolute imports and Relative imports.
+          ["^services(/.*|$)"],
+          ["^helpers(/.*|$)"],
+          ["^modules(/.*|$)"],
+          ["^containers(/.*|$)"],
+          ["^layouts(/.*|$)"],
+          ["^pages(/.*|$)"],
+          ["^components(/.*|$)"],
+          ["^translations(/.*|$)"],
+          ["^assets(/.*|$)"],
+          // Parent imports. Put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // images imports
+          ["^.+\\.(svg|jpg|png)$"],
+          // Style imports.
+          ["^.+\\.s?css$"],
+          ["^"]
+        ]
+      }
+    ],
+
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "leadingUnderscore": "require",
+        "prefix": ["I"],
+        "format": ["UPPER_CASE", "StrictPascalCase"]
+      }
+    ],
+
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowCallExpression": true, // The true value here is for backward compatibility
+        "allowLiteral": false,
+        "allowObject": false
+      }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
