@@ -32,7 +32,8 @@
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}",
     "stylelint": "stylelint **/*.{css,scss,sass}",
-    "stylelint:fix": "stylelint **/*.{css,scss,sass} --fix"
+    "stylelint:fix": "stylelint **/*.{css,scss,sass} --fix",
+    "lint:editorconfig": "editorconfig-checker"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +57,7 @@
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "editorconfig-checker": "^4.0.2",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
